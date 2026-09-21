@@ -21,6 +21,7 @@ h1 {
         #ff8fb3
     );
 
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -139,14 +140,11 @@ th {
 
 tr:nth-child(even) {
     background-color: #fff8cc;
-
     color: #17365d;
 }
 
-
 tr:nth-child(odd) {
     background-color: #fff4b8;
-
     color: #17365d;
 }
 
@@ -160,13 +158,12 @@ tr:hover td {
 
 video {
     display: block;
-
     margin: 20px auto;
-
+    width: 300px;
+    height: auto;
     max-width: 90%;
 
     border: 4px solid #72c7ff;
-
     border-radius: 15px;
 
     box-shadow:
@@ -175,4 +172,15 @@ video {
 
 h2 + video {
     margin-top: 20px;
+}
+
+/* Kontrol musik pembuka menghilang perlahan */
+#kontrolMusik {
+    opacity: 1;
+    transition: opacity 3s ease;
+}
+
+#kontrolMusik.menghilang {
+    opacity: 0;
+    pointer-events: none;
 }

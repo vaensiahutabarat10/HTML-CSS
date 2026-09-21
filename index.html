@@ -8,9 +8,12 @@
    
 </head>
 <body>
-    <audio autoplay loop>
-    <source src="pembuka.mpeg" type="audio/mpeg">
-</audio>
+
+    <div id="kontrolMusik">
+    <audio id="musikPembuka" controls>
+        <source src="pembuka.mpeg" type="audio/mpeg">
+    </audio>
+    </div>
 
     <h1>Biodata Saya</h1>
 
@@ -188,6 +191,56 @@
         </td>
     </tr>
 </table>
+<h2>Video Saya</h2>
 
-    </body>
+<video id="videoSaya" width="300" controls>
+    <source src="video baru.mp4" type="video/mp4">
+ 
+</video>
+
+<audio id="audioVideo">
+    <source src="audio video.mpeg" type="audio/mpeg">
+</audio>
+<script>
+    const musikPembuka = document.getElementById("musikPembuka");
+    const video = document.getElementById("videoSaya");
+    const audioVideo = document.getElementById("audioVideo");
+    const kontrolMusik = document.getElementById("kontrolMusik");
+
+    // Saat musik pembuka mulai dimainkan
+    musikPembuka.addEventListener("play", function () {
+        setTimeout(function () {
+            kontrolMusik.classList.add("menghilang");
+        }, 500);
+    });
+
+    // Saat video dimainkan
+    video.addEventListener("play", function () {
+        musikPembuka.pause();
+        musikPembuka.currentTime = 0;
+
+        audioVideo.currentTime = 0;
+        audioVideo.play();
+    });
+
+    // Saat video di-pause
+    video.addEventListener("pause", function () {
+        audioVideo.pause();
+    });
+
+    // Saat video selesai
+    video.addEventListener("ended", function () {
+        audioVideo.pause();
+        audioVideo.currentTime = 0;
+    });
+</script>
+<h2>Penutup</h2>
+
+<p>
+    Demikian biodata singkat saya. Saya berharap dapat terus belajar,
+    mengembangkan kemampuan di bidang Informatika, dan menjadi pribadi
+    yang lebih baik di masa depan.
+</p>
+
+</body>
 </html>
